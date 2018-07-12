@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ELProgressHUD'
-    s.version          = '0.1.1'
+    s.version          = '0.1.2'
     s.summary          = '封装自MBProgressHUD加载提示组件'
     #使用arc
     s.requires_arc = true
