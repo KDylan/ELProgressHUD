@@ -22,7 +22,6 @@ public class ELProgressHUD: NSObject {
         self.showCustomIcon(title, imageName: "MBHUD_Info", view: toView)
     }
     
-    
     //显示成功消息带图片，带图
     /// 显示success
     ///
