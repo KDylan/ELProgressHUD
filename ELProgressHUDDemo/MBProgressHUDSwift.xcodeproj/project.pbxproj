@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8C783A20849FA6E2143090AD /* Pods_MBProgressHUDSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513AA330BABD01AD52BE7F4E /* Pods_MBProgressHUDSwift.framework */; };
-		FC60CD0E210830750069A6C7 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC60CD0D210830750069A6C7 /* Settings.bundle */; };
 		FCDC813F2101E1B7006E61B0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDC813E2101E1B7006E61B0 /* UIViewExtensions.swift */; };
 		FCDC81412101E2E3006E61B0 /* DYAlertControllerTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDC81402101E2E3006E61B0 /* DYAlertControllerTool.swift */; };
 		FCF9503420EC52AB00B3CF74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9503320EC52AB00B3CF74 /* AppDelegate.swift */; };
@@ -22,7 +21,6 @@
 		513AA330BABD01AD52BE7F4E /* Pods_MBProgressHUDSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MBProgressHUDSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB3251D28F7E7A694B5A9B8 /* Pods-MBProgressHUDSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBProgressHUDSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBProgressHUDSwift/Pods-MBProgressHUDSwift.release.xcconfig"; sourceTree = "<group>"; };
 		F77F7DEB4551A14219CD9F61 /* Pods-MBProgressHUDSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBProgressHUDSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBProgressHUDSwift/Pods-MBProgressHUDSwift.debug.xcconfig"; sourceTree = "<group>"; };
-		FC60CD0D210830750069A6C7 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../ELProgressHUD/Assets/Settings.bundle; sourceTree = "<group>"; };
 		FCDC813E2101E1B7006E61B0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		FCDC81402101E2E3006E61B0 /* DYAlertControllerTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DYAlertControllerTool.swift; sourceTree = "<group>"; };
 		FCF9503020EC52AB00B3CF74 /* MBProgressHUDSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MBProgressHUDSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,7 +80,6 @@
 		FCF9502720EC52AB00B3CF74 = {
 			isa = PBXGroup;
 			children = (
-				FC60CD0D210830750069A6C7 /* Settings.bundle */,
 				FCF9503220EC52AB00B3CF74 /* MBProgressHUDSwift */,
 				FCF9503120EC52AB00B3CF74 /* Products */,
 				1D691D13BCEA008BF1709B97 /* Pods */,
@@ -173,7 +170,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC60CD0E210830750069A6C7 /* Settings.bundle in Resources */,
 				FCF9503E20EC52B300B3CF74 /* LaunchScreen.storyboard in Resources */,
 				FCF9503B20EC52B300B3CF74 /* Assets.xcassets in Resources */,
 				FCF9503920EC52AB00B3CF74 /* Main.storyboard in Resources */,
