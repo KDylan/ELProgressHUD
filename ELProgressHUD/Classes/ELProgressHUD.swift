@@ -11,8 +11,13 @@ import UIKit
 import MBProgressHUD
 
 public class ELProgressHUD: NSObject {
-    
-    
+//
+//    fileprivate lazy var infoImage: UIImage? = Config.bundleImage(.Info)?.withRenderingMode(.alwaysTemplate)
+//    fileprivate lazy var successImage: UIImage? = Config.bundleImage(.Success)?.withRenderingMode(.alwaysTemplate)
+//    fileprivate lazy var errorImage: UIImage? = Config.bundleImage(.Error)?.withRenderingMode(.alwaysTemplate)
+//    fileprivate lazy var warnImage: UIImage? = Config.bundleImage(.Warn)?.withRenderingMode(.alwaysTemplate)
+//
+//    
     //显示普通消息,带图
     /// 显示info
     ///
@@ -21,7 +26,7 @@ public class ELProgressHUD: NSObject {
     ///   - toView: view
     public class func showInfo(_ title: String,toView:UIView) {
         
-        self.showCustomIcon(title, imageName: "MBHUD_Info", view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Info)!, view: toView)
     }
     
     //显示成功消息带图片，带图
@@ -32,7 +37,7 @@ public class ELProgressHUD: NSObject {
     ///   - toView: view
     public class func showSuccess(_ title: String,toView:UIView) {
         
-        self.showCustomIcon(title, imageName: "MBHUD_Success", view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Success)!, view: toView)
     }
     
     
@@ -43,7 +48,7 @@ public class ELProgressHUD: NSObject {
     ///   - toView: view
     public class func showError(_ title: String,toView: UIView?) {
         
-        self.showCustomIcon(title, imageName: "MBHUD_Error", view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Error)!, view: toView)
         
     }
     
@@ -55,7 +60,7 @@ public class ELProgressHUD: NSObject {
     ///   - toView: view
     public class func showWarn(_ title: String,toView: UIView?) {
         
-        self.showCustomIcon(title, imageName: "MBHUD_Warn", view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Warn)!, view: toView)
         
     }
     
@@ -185,7 +190,7 @@ public class ELProgressHUD: NSObject {
     ///   - title: message
     ///   - imageName: imageName
     ///   - view: view
-    public class func showCustomIcon(_ title:String,imageName:String, view: UIView?) {
+    public class func showCustomIcon(_ title:String,image:UIImage, view: UIView?) {
         //  隐藏loading
         var temp_View = view
         
@@ -203,8 +208,8 @@ public class ELProgressHUD: NSObject {
         hud.mode = .customView
         hud.label.text = title
         
-        hud.customView = UIImageView(image: UIImage(named: imageName))
-        
+//        hud.customView = UIImageView(image: UIImage(named: imageName))
+          hud.customView = UIImageView(image: image)
         if #available(iOS 10.0, *) {
             hud.bezelView.backgroundColor = UIColor.init(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)
         } else {
@@ -277,4 +282,9 @@ public class ELProgressHUD: NSObject {
         
         return window!
     }
+}
+
+extension ELProgressHUD{
+    
+    
 }
