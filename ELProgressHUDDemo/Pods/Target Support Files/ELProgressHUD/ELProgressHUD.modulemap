@@ -1,0 +1,6 @@
+framework module ELProgressHUD {
+  umbrella header "ELProgressHUD-umbrella.h"
+
+  export *
+  module * { export * }
+}

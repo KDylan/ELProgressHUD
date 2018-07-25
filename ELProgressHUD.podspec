@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ELProgressHUD'
-    s.version          = '0.1.3'
+    s.version          = '0.1.4'
     s.summary          = '封装自MBProgressHUD加载提示组件'
     #使用arc
     s.requires_arc = true
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
  
     #资源文件地址
     s.resource_bundles = {
-      'ELProgressHUD' => ['ELProgressHUD/Assets/**/*.png']
+      'ELProgressHUD' => ['ELProgressHUD/Assets/Settings.bundle']
      }
 
     s.dependency 'MBProgressHUD', '~> 1.1.0'
