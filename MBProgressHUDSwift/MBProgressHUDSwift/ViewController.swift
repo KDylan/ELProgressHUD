@@ -15,13 +15,13 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
     }
     
     @IBAction func showinfo(_ sender: Any) {
          print("showinfo");
         
-        ELProgressHUD.showInfo("showInfo", toView: self.view)
+        ELProgressHUD.showInfo("showInfo")
 //        DYAlertControllerTool.showAlert(currentVC: self, title:"title", meg: "msg", cancelBtn: "cancel", otherBtn: "other") { (action) in
 //            print("click")
 //        }
@@ -33,10 +33,10 @@ class ViewController: UIViewController {
 //              print("ok ")
 //        }
     }
- 
+    
     @IBAction func Click_Success(_ sender: Any) {
         print("Click_Success");
-        ELProgressHUD.showSuccess("showSuccess", toView: self.view)
+        ELProgressHUD.showSuccess("showSuccess")
     }
     
     
@@ -45,25 +45,25 @@ class ViewController: UIViewController {
         print("click_Error");
  
         
-        ELProgressHUD.showError("showError", toView: self.view)
+        ELProgressHUD.showError("showError")
         
     }
     
     
     @IBAction func click_Warn(_ sender: Any) {
         print("click_Warn")
-        ELProgressHUD.showWarn("showWarn", toView: self.view)
+        ELProgressHUD.showWarn("showWarn")
     }
     
     
     @IBAction func showLoadtoView(_ sender: Any) {
         
          print("showLoadtoView");
-        ELProgressHUD.showLoadToView("上转中", View: self.view)
+        ELProgressHUD.showLoadToView("上转中")
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1.5) {
             
-            ELProgressHUD.hidehudForView(view: self.view)
+            ELProgressHUD.hideHud()
 //            ELProgressHUD.hideHud()
         }
         
@@ -80,26 +80,26 @@ class ViewController: UIViewController {
     @IBAction func showIconMessage(_ sender: Any) {
         
          print("showIconMessage");
-        ELProgressHUD.showIconMessage("showIconMessage", View: self.view, RemainTime: 5)
+        ELProgressHUD.showIconMessage("showIconMessage", RemainTime: 5)
         
     }
     @IBAction func showAutoMessage_2(_ sender: Any) {
         
          print("showAutoMessage_2");
-        ELProgressHUD.showAutoMessage("showAutoMessage_2", View: self.view)
+        ELProgressHUD.showAutoMessage("showAutoMessage_2")
         
     }
    
     
     @IBAction func showMessage(_ sender: Any) {
          print("showMessage");
-        ELProgressHUD.showMessage("showMessage", View: self.view, RemainTime: 1.5)
+        ELProgressHUD.showMessage("showMessage",RemainTime: 1.5)
     }
     
     @IBAction func hidehudForView(_ sender: Any) {
         print("hidehudForView");
       
-        ELProgressHUD.hidehudForView(view: self.view)
+        ELProgressHUD.hideHud()
     }
     @IBAction func hideHud(_ sender: Any) {
         

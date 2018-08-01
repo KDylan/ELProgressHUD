@@ -9,6 +9,7 @@ import UIKit
 
 class ELProgressHUDConfig: NSObject {
 
+  
     // MARK: - 情景图片显示类型
     enum ELProgressHUDImageType {
         case Error

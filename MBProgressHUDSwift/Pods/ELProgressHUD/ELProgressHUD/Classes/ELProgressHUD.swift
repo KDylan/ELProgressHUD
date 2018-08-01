@@ -10,23 +10,26 @@
 import UIKit
 import MBProgressHUD
 
-public class ELProgressHUD: NSObject {
-//
-//    fileprivate lazy var infoImage: UIImage? = Config.bundleImage(.Info)?.withRenderingMode(.alwaysTemplate)
-//    fileprivate lazy var successImage: UIImage? = Config.bundleImage(.Success)?.withRenderingMode(.alwaysTemplate)
-//    fileprivate lazy var errorImage: UIImage? = Config.bundleImage(.Error)?.withRenderingMode(.alwaysTemplate)
-//    fileprivate lazy var warnImage: UIImage? = Config.bundleImage(.Warn)?.withRenderingMode(.alwaysTemplate)
-//
-//    
+
+public class ELProgressHUD :NSObject{
+    
+    
+    //
+    //        fileprivate lazy var infoImage: UIImage? = Config.bundleImage(.Info)?.withRenderingMode(.alwaysTemplate)
+    //    fileprivate lazy var successImage: UIImage? = Config.bundleImage(.Success)?.withRenderingMode(.alwaysTemplate)
+    //    fileprivate lazy var errorImage: UIImage? = Config.bundleImage(.Error)?.withRenderingMode(.alwaysTemplate)
+    //    fileprivate lazy var warnImage: UIImage? = Config.bundleImage(.Warn)?.withRenderingMode(.alwaysTemplate)
+    //
+    //
     //显示普通消息,带图
     /// 显示info
     ///
     /// - Parameters:
     ///   - title: titlew
     ///   - toView: view
-    public class func showInfo(_ title: String,toView:UIView) {
+    public class func showInfo(_ title: String) {
         
-        self.showCustomIcon(title, image: Config.bundleImage(.Info)!, view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Info)!)
     }
     
     //显示成功消息带图片，带图
@@ -35,9 +38,9 @@ public class ELProgressHUD: NSObject {
     /// - Parameters:
     ///   - title: title
     ///   - toView: view
-    public class func showSuccess(_ title: String,toView:UIView) {
+    public class func showSuccess(_ title: String) {
         
-        self.showCustomIcon(title, image: Config.bundleImage(.Success)!, view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Success)!)
     }
     
     
@@ -46,9 +49,9 @@ public class ELProgressHUD: NSObject {
     /// - Parameters:
     ///   - title: message
     ///   - toView: view
-    public class func showError(_ title: String,toView: UIView?) {
+    public class func showError(_ title: String) {
         
-        self.showCustomIcon(title, image: Config.bundleImage(.Error)!, view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Error)!)
         
     }
     
@@ -58,9 +61,9 @@ public class ELProgressHUD: NSObject {
     /// - Parameters:
     ///   - title: message
     ///   - toView: view
-    public class func showWarn(_ title: String,toView: UIView?) {
+    public class func showWarn(_ title: String) {
         
-        self.showCustomIcon(title, image: Config.bundleImage(.Warn)!, view: toView)
+        self.showCustomIcon(title, image: Config.bundleImage(.Warn)!)
         
     }
     
@@ -68,9 +71,9 @@ public class ELProgressHUD: NSObject {
     /// 显示菊花加载视图，不自动消失
     ///
     /// - Parameter View: view
-    public class func showLoadToView(_ message:String,View:UIView?)  {
+    public class func showLoadToView(_ message:String)  {
         
-        self.showIconMessage(message, View: View ,RemainTime: 0)
+        self.showIconMessage(message,RemainTime: 0)
     }
     
     
@@ -91,9 +94,9 @@ public class ELProgressHUD: NSObject {
     ///   - message: message
     ///   - View: view
     ///   - RemainTime: time
-    public class func showIconMessage(_ message:String,View: UIView?,RemainTime:TimeInterval) {
+    public class func showIconMessage(_ message:String,RemainTime:TimeInterval) {
         
-        self.showMessage(message, View: View, RemainTime: RemainTime, Model: .indeterminate)
+        self.showMessage(message, RemainTime: RemainTime, Model: .indeterminate)
         
     }
     
@@ -104,9 +107,9 @@ public class ELProgressHUD: NSObject {
     ///   - message: message
     ///   - View: view
     ///   - RemainTime: time
-    public class func showAutoMessage(_ message:String,View: UIView?) {
+    public class func showAutoMessage(_ message:String) {
         
-        self.showMessage(message, View: View, RemainTime: 2.0, Model: .text)
+        self.showMessage(message, RemainTime: 2.0, Model: .text)
         
     }
     /// 自定义停留时间,无图
@@ -115,9 +118,9 @@ public class ELProgressHUD: NSObject {
     ///   - message: message
     ///   - View: view
     ///   - RemainTime: time
-    public class func showMessage(_ message:String,View: UIView?,RemainTime:TimeInterval) {
+    public class func showMessage(_ message:String,RemainTime:TimeInterval) {
         
-        self.showMessage(message, View: View, RemainTime: RemainTime, Model: .text)
+        self.showMessage(message, RemainTime: RemainTime, Model: .text)
         
     }
     
@@ -128,18 +131,14 @@ public class ELProgressHUD: NSObject {
     ///   - View: view
     ///   - RemainTime: 隐藏时间
     ///   - Model: 显示的类型【MBHUD四种模型】
-    public class func showMessage(_ message:String,View: UIView?,RemainTime:TimeInterval,Model:MBProgressHUDMode) {
+    public class func showMessage(_ message:String,RemainTime:TimeInterval,Model:MBProgressHUDMode) {
         
-        var temp_View = View
+        var View = self.showHudView.shareInstance.HUDView
         
-        if temp_View == nil {
-            
-            temp_View = viewToShow()
-        }
         
-        self.hidehudForView(view: temp_View)
+        self.hideHud()
         
-        let hud = MBProgressHUD.showAdded(to: temp_View!, animated: true)
+        let hud = MBProgressHUD.showAdded(to: View, animated: true)
         
         //        hud.backgroundView.style = .blur  //模糊的遮罩背景
         
@@ -190,26 +189,20 @@ public class ELProgressHUD: NSObject {
     ///   - title: message
     ///   - imageName: imageName
     ///   - view: view
-    public class func showCustomIcon(_ title:String,image:UIImage, view: UIView?) {
-        //  隐藏loading
-        var temp_View = view
+    public class func showCustomIcon(_ title:String,image:UIImage) {
+        var View = self.showHudView.shareInstance.HUDView
         
-        self.hidehudForView(view: temp_View)
+        self.hideHud()
         
-        if temp_View == nil {
-            
-            temp_View = viewToShow()
-        }
-        
-        let hud = MBProgressHUD.showAdded(to: temp_View!, animated: true)
+        let hud = MBProgressHUD.showAdded(to: View, animated: true)
         
         hud.dimBackground = true
         
         hud.mode = .customView
         hud.label.text = title
         
-//        hud.customView = UIImageView(image: UIImage(named: imageName))
-          hud.customView = UIImageView(image: image)
+        //        hud.customView = UIImageView(image: UIImage(named: imageName))
+        hud.customView = UIImageView(image: image)
         if #available(iOS 10.0, *) {
             hud.bezelView.backgroundColor = UIColor.init(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)
         } else {
@@ -225,16 +218,10 @@ public class ELProgressHUD: NSObject {
     }
     
     /// 隐藏view
-    public class  func hidehudForView(view:UIView?){
+    public class  func hideHud(){
         
-        if view==nil {
-            
-            MBProgressHUD.hide(for: viewToShow(), animated: true)
-            
-        }else{
-            
-            MBProgressHUD.hide(for: view!, animated: true)
-        }
+        MBProgressHUD.hide(for: self.showHudView.shareInstance.HUDView, animated: true)
+        
         
     }
     
@@ -266,25 +253,65 @@ public class ELProgressHUD: NSObject {
         }
     }
     
-    
-    //获取用于显示提示框的view
-    public class func viewToShow() -> UIView {
-        var window = UIApplication.shared.keyWindow
-        if window?.windowLevel != UIWindowLevelNormal {
-            let windowArray = UIApplication.shared.windows
-            for tempWin in windowArray {
-                if tempWin.windowLevel == UIWindowLevelNormal {
-                    window = tempWin;
-                    break
+    class showHudView: UIView {
+        
+        public static let shareInstance = showHudView()
+        
+        //  懒加载HUDView【确保加载一次】
+        lazy var HUDView:UIView = {
+            
+            var window = UIApplication.shared.keyWindow
+            if window?.windowLevel != UIWindowLevelNormal {
+                let windowArray = UIApplication.shared.windows
+                for tempWin in windowArray {
+                    if tempWin.windowLevel == UIWindowLevelNormal {
+                        window = tempWin;
+                        break
+                    }
                 }
             }
-        }
-        
-        return window!
+            
+            return window!
+            
+        }()
     }
+    //    //获取用于显示提示框的view
+    //    public class func viewToShow() -> UIView{
+    //
+    //        var window = UIApplication.shared.keyWindow
+    //        if window?.windowLevel != UIWindowLevelNormal {
+    //
+    //            let windowArray = UIApplication.shared.windows
+    //            for tempWin in windowArray {
+    //                if tempWin.windowLevel == UIWindowLevelNormal {
+    //                    window = tempWin;
+    //                    break
+    //                }
+    //            }
+    //        }
+    //        print("调用")
+    //        return window!
+    //    }
+    
+    
+    //    //  懒加载footView【确保加载一次】
+    //    lazy var viewShow:UIView = {
+    //
+    //        var window = UIApplication.shared.keyWindow
+    //        if window?.windowLevel != UIWindowLevelNormal {
+    //            let windowArray = UIApplication.shared.windows
+    //            for tempWin in windowArray {
+    //                if tempWin.windowLevel == UIWindowLevelNormal {
+    //                    window = tempWin;
+    //                    break
+    //                }
+    //            }
+    //        }
+    //        print("调用")
+    //        return window!
+    //
+    //    }()
+    
+    
 }
 
-extension ELProgressHUD{
-    
-    
-}
