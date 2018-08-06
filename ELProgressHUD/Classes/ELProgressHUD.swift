@@ -160,13 +160,7 @@ public class ELProgressHUD :NSObject{
         hud.label.textColor = UIColor.white
         //       //  正方形
         //       hud.isSquare = true
-        //
-        if #available(iOS 10.0, *) {
-            hud.bezelView.backgroundColor = UIColor.init(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)
-        } else {
-            hud.contentColor = UIColor.black
-            //            hud.alpha = 0.8
-        }
+        hud.bezelView.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)
         
         hud.removeFromSuperViewOnHide = true
         
@@ -203,12 +197,8 @@ public class ELProgressHUD :NSObject{
         
         //        hud.customView = UIImageView(image: UIImage(named: imageName))
         hud.customView = UIImageView(image: image)
-        if #available(iOS 10.0, *) {
-            hud.bezelView.backgroundColor = UIColor.init(displayP3Red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)
-        } else {
-            hud.contentColor = UIColor.black
-            //            hud.alpha = 0.8
-        }
+        
+        hud.bezelView.backgroundColor = UIColor.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.9)
         
         hud.label.textColor = UIColor.white
         
